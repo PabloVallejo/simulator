@@ -39,6 +39,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.4)
+    bootstrap_form (2.5.3)
     builder (3.2.2)
     byebug (9.0.6)
     coffee-rails (4.2.1)
@@ -133,6 +134,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    squasher (0.2.0)
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
       ref
@@ -159,6 +161,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap_form (~> 2.5.3)
   byebug
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
@@ -170,6 +173,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
+  squasher (~> 0.2.0)
   therubyracer
   turbolinks (~> 5)
   tzinfo-data
