@@ -10,13 +10,19 @@
   </head>
 
   <body>
-        <nav class="navbar navbar-dark">
+    <nav class="navbar navbar-fixed-top navbar-dark bg-blue">
             <div class="container">
-                <a class="navbar-brand" href="/">Board</a>
-                <ul class="nav navbar-nav">
-                </ul>
+                <a class="navbar-brand" href="/">Simulador de compras</a>
             </div>
         </nav>
+
+        <div class="container">
+            <% flash.each do |key, value| %>
+                <div class="alert alert-info">
+                  <%= value %>
+                </div>
+            <% end %>
+        </div>
     <%= yield %>
   </body>
 </html>
