@@ -1,2 +1,21 @@
-<h1>Simulator#show</h1>
-<p>Find me in app/views/simulator/show.html.erb</p>
+<div class="container">
+    <h1><%= @simulator.name %></h1>
+    <p class="lead"><%= @simulator.description %></p>
+
+    <hr>
+
+    <%= bootstrap_form_tag url: '/subscribe' do |f| %>
+        <%= f.text_field :company_name, value: 'Acme...' %>
+        <%= f.text_field :company_address, value: 'Calle 100 # ...' %>
+        <%= f.text_field :buyer_name %>
+        <%= f.email_field :buyer_email %>
+        <%= f.submit %>
+    <% end %>
+
+</div>
+
+
+
+
+
+

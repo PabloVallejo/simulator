@@ -7,6 +7,11 @@ class SimulatorController < ApplicationController
     @simulator_list = Simulator.all
   end
 
+  #
+  # Shows a simulator's detail.
+  #
   def show
+    @simulator = Simulator.find(params[:id])
   end
+
 end
