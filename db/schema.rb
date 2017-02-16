@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170108161022) do
+ActiveRecord::Schema.define(version: 20170117004521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "private_cloud_iis", force: :cascade do |t|
+    t.string   "code"
+    t.string   "category"
+    t.string   "service_name"
+    t.string   "service_level"
+    t.string   "elasticity"
+    t.string   "server"
+    t.string   "deliver_mode"
+    t.string   "version"
+    t.string   "physical_cores"
+    t.string   "virtual_cpus"
+    t.string   "operative_system"
+    t.string   "processor_speed"
+    t.string   "memory_ram"
+    t.string   "storage"
+    t.string   "characteristic_1"
+    t.string   "characteristic_2"
+    t.string   "characteristic_3"
+    t.string   "characteristic_4"
+    t.string   "billing_unit"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "simulators", force: :cascade do |t|
     t.string   "name"

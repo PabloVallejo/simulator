@@ -1,0 +1,2 @@
+class PrivateCloudIi < ApplicationRecord
+end

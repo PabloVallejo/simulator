@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  category: MyString
+  service_name: MyString
+  service_level: MyString
+  elasticity: MyString
+  server: MyString
+  deliver_mode: MyString
+  version: MyString
+  physical_cores: MyString
+  virtual_cpus: MyString
+  operative_system: MyString
+  processor_speed: MyString
+  memory_ram: MyString
+  storage: MyString
+  characteristic_1: MyString
+  characteristic_2: MyString
+  characteristic_3: MyString
+  characteristic_4: MyString
+  billing_unit: MyString
+
+two:
+  code: MyString
+  category: MyString
+  service_name: MyString
+  service_level: MyString
+  elasticity: MyString
+  server: MyString
+  deliver_mode: MyString
+  version: MyString
+  physical_cores: MyString
+  virtual_cpus: MyString
+  operative_system: MyString
+  processor_speed: MyString
+  memory_ram: MyString
+  storage: MyString
+  characteristic_1: MyString
+  characteristic_2: MyString
+  characteristic_3: MyString
+  characteristic_4: MyString
+  billing_unit: MyString
