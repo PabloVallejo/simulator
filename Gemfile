@@ -53,6 +53,9 @@ group :development do
 
   # Squsher to squash migrations.
   gem 'squasher', '~> 0.2.0'
+
+  # Read excel files.
+  gem "roo", "~> 2.7.0"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
