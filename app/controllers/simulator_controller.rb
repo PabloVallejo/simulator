@@ -17,7 +17,6 @@ class SimulatorController < ApplicationController
 
   def step_two
     @select_options = {
-      code: PrivateCloudIi.pluck('distinct code'),
       category: PrivateCloudIi.pluck('distinct category'),
       service_name: PrivateCloudIi.pluck('distinct service_name'),
       service_level: PrivateCloudIi.pluck('distinct service_level'),
