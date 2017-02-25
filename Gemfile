@@ -38,6 +38,9 @@ gem 'jbuilder', '~> 2.5'
 # Bootstrap forms.
 gem 'bootstrap_form', '~> 2.5.3'
 
+# Read excel files.
+gem "roo", "~> 2.7.0"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
@@ -53,9 +56,6 @@ group :development do
 
   # Squsher to squash migrations.
   gem 'squasher', '~> 0.2.0'
-
-  # Read excel files.
-  gem "roo", "~> 2.7.0"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
