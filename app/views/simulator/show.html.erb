@@ -1,15 +1,31 @@
 <div class="container">
-    <h1><%= @simulator.name %></h1>
+
+    <div class="stepwizard">
+        <div class="stepwizard-row setup-panel">
+          <div class="stepwizard-step">
+            <a href="#step-1" class="btn btn-primary">1</a>
+            <p>Paso 1</p>
+          </div>
+          <div class="stepwizard-step">
+            <a href="#step-2" class="btn btn-secondary disabled" disabled="disabled">2</a>
+            <p>Paso 2</p>
+          </div>
+          <div class="stepwizard-step">
+            <a href="#step-3" class="btn btn-secondary disabled" disabled="disabled">3</a>
+            <p>Paso 3</p>
+          </div>
+        </div>
+    </div>
+
+    <h3><%= @simulator.name %></h3>
     <p class="lead"><%= @simulator.description %></p>
 
-    <hr>
-
-    <%= bootstrap_form_tag url: '/subscribe' do |f| %>
+    <%= bootstrap_form_tag url: simulator_step_two_path(@simulator.id) do |f| %>
         <%= f.text_field :company_name, value: 'Acme...' %>
         <%= f.text_field :company_address, value: 'Calle 100 # ...' %>
         <%= f.text_field :buyer_name %>
         <%= f.email_field :buyer_email %>
-        <%= f.submit %>
+        <%= f.submit 'Continuar', class: 'btn btn-success' %>
     <% end %>
 
 </div>

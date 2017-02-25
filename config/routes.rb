@@ -6,7 +6,7 @@
   resources :simulator do
 
     # Step two.
-    get 'step-two', action: 'step_two'
+    post 'step-two', action: 'step_two'
 
     # Step three.
     post 'step-three', action: 'step_three'
