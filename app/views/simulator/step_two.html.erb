@@ -2,7 +2,6 @@
     <h1 class="text-xs-center">Paso dos</h1>
 
     <%= bootstrap_form_tag url: '/simulator/1/step-three' do |f| %>
-        <%= f.select 'code', @select_options[:code], { label: "Código:" } %>
         <%= f.select 'category', @select_options[:category], { label: "Categoría:" } %>
         <%= f.select 'service_name', @select_options[:service_name], { label: "Nombre del servicio:" } %>
         <%= f.select 'service_level', @select_options[:service_level], { label: "Nivel de servicio:" } %>
