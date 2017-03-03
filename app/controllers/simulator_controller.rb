@@ -16,6 +16,7 @@ class SimulatorController < ApplicationController
   end
 
   def step_two
+    @simulator = Simulator.find(params[:simulator_id])
     @select_options = {
       category: PrivateCloudIi.where.not(category: nil).pluck('distinct category'),
       service_name: PrivateCloudIi.where.not(service_name: nil).pluck('distinct service_name'),

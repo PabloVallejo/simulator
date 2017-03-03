@@ -17,29 +17,84 @@
         </div>
     </div>
 
-    <%= bootstrap_form_tag url: '/simulator/1/step-three' do |f| %>
-        <%= f.select 'category', @select_options[:category], { label: "Categoría:" } %>
-        <%= f.select 'service_name', @select_options[:service_name], { label: "Nombre del servicio:" } %>
-        <%= f.select 'service_level', @select_options[:service_level], { label: "Nivel de servicio:" } %>
-        <%= f.select 'elasticity', @select_options[:elasticity], { label: "Elasticidad:" } %>
-        <%= f.select 'server', @select_options[:server], { label: "Servidor:" } %>
-        <%= f.select 'deliver_mode', @select_options[:deliver_mode], { label: "Modalidad de entrega del servicio:" } %>
-        <%= f.select 'version', @select_options[:version], { label: "Versión:" } %>
-        <%= f.select 'physical_cores', @select_options[:physical_cores], { label: "Cantidad core físico:" } %>
-        <%= f.select 'virtual_cpus', @select_options[:virtual_cpus], { label: "Cantidad VirtualCPU:" } %>
-        <%= f.select 'operative_system', @select_options[:operative_system], { label: "Sistema Operativo:" } %>
-        <%= f.select 'processor_speed', @select_options[:processor_speed], { label: "Velocidad Procesador:" } %>
-        <%= f.select 'memory_ram', @select_options[:memory_ram], { label: "Memoria RAM (GB):" } %>
-        <%= f.select 'storage', @select_options[:storage], { label: "Almacenamiento (GB):" } %>
-        <%= f.select 'characteristic_1', @select_options[:characteristic_1], { label: "Característica 1:" } %>
-        <%= f.select 'characteristic_2', @select_options[:characteristic_2], { label: "Característica 2:" } %>
-        <%= f.select 'characteristic_3', @select_options[:characteristic_3], { label: "Característica 3:" } %>
-        <%= f.select 'characteristic_4', @select_options[:characteristic_4], { label: "Característica 4:" } %>
+    <%= bootstrap_form_tag url: simulator_step_three_path(@simulator.id) do |f| %>
+        <div class="row">
+            <div class="col-md-6">
+                <%= f.select 'category', @select_options[:category], { label: "Categoría:" } %>
+            </div>
+            <div class="col-md-6">
+                <%= f.select 'service_name', @select_options[:service_name], { label: "Nombre del servicio:" } %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <%= f.select 'service_level', @select_options[:service_level], { label: "Nivel de servicio:" } %>
+            </div>
+            <div class="col-md-4">
+                <%= f.select 'elasticity', @select_options[:elasticity], { label: "Elasticidad:" } %>
+            </div>
+            <div class="col-md-4">
+                <%= f.select 'server', @select_options[:server], { label: "Servidor:" } %>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <%= f.select 'deliver_mode', @select_options[:deliver_mode], { label: "Modalidad de entrega del servicio:" } %>
+            </div>
+            <div class="col-md-4">
+                <%= f.select 'version', @select_options[:version], { label: "Versión:" } %>
+            </div>
+            <div class="col-md-4">
+                <%= f.select 'physical_cores', @select_options[:physical_cores], { label: "Cantidad core físico:" } %>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <%= f.select 'virtual_cpus', @select_options[:virtual_cpus], { label: "Cantidad VirtualCPU:" } %>
+            </div>
+            <div class="col-md-4">
+                <%= f.select 'operative_system', @select_options[:operative_system], { label: "Sistema Operativo:" } %>
+            </div>
+            <div class="col-md-4">
+                <%= f.select 'processor_speed', @select_options[:processor_speed], { label: "Velocidad Procesador:" } %>
+            </div>
+        </div>
+        <hr style="margin: 40px 0;">
+
+        <div class="row">
+            <div class="col-md-6">
+                <%= f.select 'memory_ram', @select_options[:memory_ram], { label: "Memoria RAM (GB):" } %>
+            </div>
+            <div class="col-md-6">
+                <%= f.select 'storage', @select_options[:storage], { label: "Almacenamiento (GB):" } %>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <%= f.select 'characteristic_1', @select_options[:characteristic_1], { label: "Característica 1:" } %>
+            </div>
+            <div class="col-md-3">
+                <%= f.select 'characteristic_2', @select_options[:characteristic_2], { label: "Característica 2:" } %>
+            </div>
+            <div class="col-md-3">
+                <%= f.select 'characteristic_3', @select_options[:characteristic_3], { label: "Característica 3:" } %>
+            </div>
+            <div class="col-md-3">
+                <%= f.select 'characteristic_4', @select_options[:characteristic_4], { label: "Característica 4:" } %>
+            </div>
+        </div>
+
         <%= f.select 'billing_unit', @select_options[:billing_unit], { label: "Unidad de facturación:" } %>
-        <%= f.submit %>
+        <br>
+
+        <%= f.submit 'Generar cotización', class: 'btn btn-success' %>
     <% end %>
 
-
-
-
 </div>
+
+<br>
+<br>
+<br>
