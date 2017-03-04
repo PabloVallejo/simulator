@@ -4,26 +4,22 @@ namespace :importation do
   task private_cloud_ii: :environment do
     @columns = {
       code: 'Código',
-      category: 'Categoría',
-      service_name: 'Nombre del servicio',
-      service_level: 'Nivel de servicio',
-      elasticity: 'Elasticidad',
-      server: 'Servidor',
-      deliver_mode: 'Modalidad de entrega del servicio',
-      version: 'Versión',
 
-      physical_cores: 'Cantidad core físico',
-      virtual_cpus: 'Cantidad VirtualCPU',
-      operative_system: 'Sistema Operativo',
-      processor_speed: 'Velocidad Procesador',
-      memory_ram: 'Memoria RAM (GB)',
-      storage: 'Almacenamiento (GB)',
+      ut_private_cloud: 'UT NUBE PRIVADA (SYNAPSIS COL Y PER)',
+      colsoft: 'COLSOFT',
+      ifx: 'IFX',
+      colombia_telecomunications: 'COLOMBIA TELECOMUNICACIONES',
+      une: 'UNE',
+      level_3: 'LEVEL 3',
+      ut_cf_pl_iv: 'UT CF-PL-IV',
 
-      characteristic_1: 'Característica 1',
-      characteristic_2: 'Característica 2',
-      characteristic_3: 'Característica 3',
-      characteristic_4: 'Característica 4',
-      billing_unit: 'Unidad de facturación'
+      ut_private_cloud_i: 'UT NUBE PRIVADA (SYNAPSIS COL Y PER) I',
+      colsoft_i: 'COLSOFT I',
+      ifx_i: 'IFX I',
+      colombia_telecomunications_i: 'COLOMBIA TELECOMUNICACIONES I',
+      une_i: 'UNE I',
+      level_3_i: 'LEVEL 3 I',
+      ut_cf_pl_iv_i: 'UT CF-PL-IV I'
     }
 
     xlsx = Roo::Spreadsheet.open("./app/assets/spreadsheets/catalogo.xlsx")
@@ -32,8 +28,55 @@ namespace :importation do
     sheet.each_with_index(@columns) do |hash, index|
       next if index == 0
 
-      # Create private cloud II.
-      PrivateCloudIi.create(hash)
+      puts ''
+      puts '--------'
+      puts hash
+      puts '--------'
+      puts ''
+
+      next if index > 1
+
+      private_cloud_ii = PrivateCloudIi.find_by_code(hash[:code])
+      providers = {
+        ut_private_cloud: Provider.find_by_name('UT NUBE PRIVADA (SYNAPSIS COL Y PER)'),
+        colsoft: Provider.find_by_name('COLSOFT'),
+        ifx: Provider.find_by_name('IFX'),
+        colombia_telecomunications: Provider.find_by_name('COLOMBIA TELECOMUNICACIONES'),
+        une: Provider.find_by_name('UNE'),
+        level_3: Provider.find_by_name('LEVEL 3'),
+        ut_cf_pl_iv: Provider.find_by_name('UT CF-PL-IV')
+      }
+
+      keys = [
+        'ut_private_cloud',
+        'colsoft',
+        'ifx',
+        'colombia_telecomunications',
+        'une',
+        'level_3',
+        'ut_cf_pl_iv'
+      ]
+
+      keys.each_with_index do |name|
+        puts ' >> '
+        puts name
+        puts providers[name.to_sym]
+
+        sp = ServicePrice.create(
+          provider: providers[name.to_sym],
+          private_cloud_ii: private_cloud_ii,
+          price: hash[name]
+        )
+
+        puts sp.errors.inspect
+        puts '<<'
+        puts ''
+      end
+
+      puts this.not.exist
+      # Installation
+      return;
+
     end
 
   end
