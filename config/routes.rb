@@ -14,4 +14,7 @@
     get 'step-three', action: 'step_three'
   end
 
+  # Get simulator options.
+  get 'choices', to: 'simulator#choices'
+
 end

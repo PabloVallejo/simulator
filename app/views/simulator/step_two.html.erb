@@ -20,74 +20,74 @@
     <%= bootstrap_form_tag url: simulator_step_three_path(@simulator.id) do |f| %>
         <div class="row">
             <div class="col-md-6">
-                <%= f.select 'category', @select_options[:category], { label: "Categoría:" } %>
+                <%= f.select 'category', @category_list, { label: "Categoría:" }, data: {index: 1, slug: 'category'} %>
             </div>
             <div class="col-md-6">
-                <%= f.select 'service_name', @select_options[:service_name], { label: "Nombre del servicio:" } %>
+                <%= f.select 'service_name', [], { label: "Nombre del servicio:" }, data: {index: 2, slug: 'service_name'} %>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4">
-                <%= f.select 'service_level', @select_options[:service_level], { label: "Nivel de servicio:" } %>
+                <%= f.select 'service_level', [], { label: "Nivel de servicio:" }, data: {index: 3, slug: 'service_level'} %>
             </div>
             <div class="col-md-4">
-                <%= f.select 'elasticity', @select_options[:elasticity], { label: "Elasticidad:" } %>
+                <%= f.select 'elasticity', [], { label: "Elasticidad:" }, data: {index: 4, slug: 'elasticity'} %>
             </div>
             <div class="col-md-4">
-                <%= f.select 'server', @select_options[:server], { label: "Servidor:" } %>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-4">
-                <%= f.select 'deliver_mode', @select_options[:deliver_mode], { label: "Modalidad de entrega del servicio:" } %>
-            </div>
-            <div class="col-md-4">
-                <%= f.select 'version', @select_options[:version], { label: "Versión:" } %>
-            </div>
-            <div class="col-md-4">
-                <%= f.select 'physical_cores', @select_options[:physical_cores], { label: "Cantidad core físico:" } %>
+                <%= f.select 'server', [], { label: "Servidor:" }, data: {index: 5, slug: 'server'} %>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-4">
-                <%= f.select 'virtual_cpus', @select_options[:virtual_cpus], { label: "Cantidad VirtualCPU:" } %>
+                <%= f.select 'deliver_mode', [], { label: "Modalidad de entrega del servicio:" }, data: {index: 6, slug: 'deliver_mode'} %>
             </div>
             <div class="col-md-4">
-                <%= f.select 'operative_system', @select_options[:operative_system], { label: "Sistema Operativo:" } %>
+                <%= f.select 'version', [], { label: "Versión:" }, data: {index: 7, slug: 'version'} %>
             </div>
             <div class="col-md-4">
-                <%= f.select 'processor_speed', @select_options[:processor_speed], { label: "Velocidad Procesador:" } %>
+                <%= f.select 'physical_cores', [], { label: "Cantidad core físico:" }, data: {index: 8, slug: 'physical_cores'} %>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <%= f.select 'virtual_cpus', [], { label: "Cantidad VirtualCPU:" }, data: {index: 9, slug: 'virtual_cpus'} %>
+            </div>
+            <div class="col-md-4">
+                <%= f.select 'operative_system', [], { label: "Sistema Operativo:" }, data: {index: 10, slug: 'operative_system'} %>
+            </div>
+            <div class="col-md-4">
+                <%= f.select 'processor_speed', [], { label: "Velocidad Procesador:" }, data: {index: 11, slug: 'processor_speed'} %>
             </div>
         </div>
         <hr style="margin: 40px 0;">
 
         <div class="row">
             <div class="col-md-6">
-                <%= f.select 'memory_ram', @select_options[:memory_ram], { label: "Memoria RAM (GB):" } %>
+                <%= f.select 'memory_ram', [], { label: "Memoria RAM (GB):" } , data: {index: 12, slug: 'memory_ram'}%>
             </div>
             <div class="col-md-6">
-                <%= f.select 'storage', @select_options[:storage], { label: "Almacenamiento (GB):" } %>
+                <%= f.select 'storage', [], { label: "Almacenamiento (GB):" }, data: {index: 13, slug: 'storage'} %>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-3">
-                <%= f.select 'characteristic_1', @select_options[:characteristic_1], { label: "Característica 1:" } %>
+                <%= f.select 'characteristic_1', [], { label: "Característica 1:" }, data: {index: 14, slug: 'characteristic_1'} %>
             </div>
             <div class="col-md-3">
-                <%= f.select 'characteristic_2', @select_options[:characteristic_2], { label: "Característica 2:" } %>
+                <%= f.select 'characteristic_2', [], { label: "Característica 2:" }, data: {index: 15, slug: 'characteristic_2'} %>
             </div>
             <div class="col-md-3">
-                <%= f.select 'characteristic_3', @select_options[:characteristic_3], { label: "Característica 3:" } %>
+                <%= f.select 'characteristic_3', [], { label: "Característica 3:" }, data: {index: 16, slug: 'characteristic_3'} %>
             </div>
             <div class="col-md-3">
-                <%= f.select 'characteristic_4', @select_options[:characteristic_4], { label: "Característica 4:" } %>
+                <%= f.select 'characteristic_4', [], { label: "Característica 4:" }, data: {index: 17, slug: 'characteristic_4'} %>
             </div>
         </div>
 
-        <%= f.select 'billing_unit', @select_options[:billing_unit], { label: "Unidad de facturación:" } %>
+        <%= f.select 'billing_unit', [], { label: "Unidad de facturación:" }, data: {index: 18, slug: 'billing_unit'} %>
         <br>
 
         <%= f.submit 'Generar cotización', class: 'btn btn-success' %>

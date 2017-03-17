@@ -34,7 +34,6 @@ namespace :importation do
       puts '--------'
       puts ''
 
-      next if index > 1
 
       private_cloud_ii = PrivateCloudIi.find_by_code(hash[:code])
       providers = {
@@ -72,10 +71,6 @@ namespace :importation do
         puts '<<'
         puts ''
       end
-
-      puts this.not.exist
-      # Installation
-      return;
 
     end
 
