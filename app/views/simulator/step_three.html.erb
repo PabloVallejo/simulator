@@ -2,6 +2,7 @@
 
     <h4>Tu lista de cotizaciones</h4>
 
+    <br>
 
     <!-- Service -->
     <div class="card">
@@ -9,34 +10,24 @@
             Servicio
         </div>
 
-        <div class="card-block">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="card">
-                      <div class="card-block">
-                        <h4 class="card-title">Colsoft</h4>
-                        <p class="card-text"><strong>$ 840.000.000</strong></p>
-                      </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                      <div class="card-block">
-                        <h4 class="card-title">Une</h4>
-                        <p class="card-text"><strong>$ 120.000.000</strong></p>
-                      </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                      <div class="card-block">
-                        <h4 class="card-title">Level 3</h4>
-                        <p class="card-text"><strong>$ 740.000.000</strong></p>
-                      </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Proveedor</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @service_prices.each_with_index do |service, index| %>
+                    <tr>
+                        <td><%= index %></td>
+                        <td><%= service.provider.name %></td>
+                        <td><% if service.price %>$ <%= service.price %><% else %>Precio no disponible<% end %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
     </div>
 
     <!-- Installation -->
@@ -46,35 +37,24 @@
             Instalación
         </div>
 
-        <div class="card-block">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="card">
-                      <div class="card-block">
-                        <h4 class="card-title">IFX</h4>
-                        <p class="card-text"><strong>$ 840.000.000</strong></p>
-                      </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                      <div class="card-block">
-                        <h4 class="card-title">Colombia telecomu...</h4>
-                        <p class="card-text"><strong>$ 120.000.000</strong></p>
-                      </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                      <div class="card-block">
-                        <h4 class="card-title">UT NUBE PRIVADA</h4>
-                        <p class="card-text"><strong>$ 740.000.000</strong></p>
-                      </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Proveedor</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @installation_prices.each_with_index do |installation, index| %>
+                    <tr>
+                        <td><%= index %></td>
+                        <td><%= installation.provider.name %></td>
+                        <td>$ <%= installation.price %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
     </div>
 
 

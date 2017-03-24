@@ -34,7 +34,6 @@ namespace :importation do
       puts '--------'
       puts ''
 
-
       private_cloud_ii = PrivateCloudIi.find_by_code(hash[:code])
       providers = {
         ut_private_cloud: Provider.find_by_name('UT NUBE PRIVADA (SYNAPSIS COL Y PER)'),
@@ -45,6 +44,10 @@ namespace :importation do
         level_3: Provider.find_by_name('LEVEL 3'),
         ut_cf_pl_iv: Provider.find_by_name('UT CF-PL-IV')
       }
+
+      #
+      # Services
+      #
 
       keys = [
         'ut_private_cloud',
@@ -60,11 +63,43 @@ namespace :importation do
         puts ' >> '
         puts name
         puts providers[name.to_sym]
+        puts hash[name.to_sym]
 
         sp = ServicePrice.create(
           provider: providers[name.to_sym],
           private_cloud_ii: private_cloud_ii,
-          price: hash[name]
+          price: hash[name.to_sym]
+        )
+
+        puts sp.errors.inspect
+        puts '<<'
+        puts ''
+      end
+
+      #
+      # Installations.
+      #
+
+      keys = [
+        'ut_private_cloud_i',
+        'colsoft_i',
+        'ifx_i',
+        'colombia_telecomunications_i',
+        'une_i',
+        'level_3_i',
+        'ut_cf_pl_iv_i'
+      ]
+
+      keys.each_with_index do |name|
+        puts ' >> '
+        puts name
+        puts providers[name.to_sym]
+        puts hash[name.to_sym]
+
+        sp = InstallationPrice.create(
+          provider: providers[name.to_sym],
+          private_cloud_ii: private_cloud_ii,
+          price: hash[name.to_sym]
         )
 
         puts sp.errors.inspect
