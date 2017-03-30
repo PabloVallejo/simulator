@@ -25,6 +25,8 @@ class SimulatorController < ApplicationController
   # Get data from step two form.
   #
   def step_three
+    @simulator = Simulator.find(params[:simulator_id])
+
     private_cloud_ids = PrivateCloudIi.where(
       category: params[:category],
       service_name: params[:service_name],
@@ -286,6 +288,14 @@ class SimulatorController < ApplicationController
     render json: {
       options: options
     }
+  end
+
+  def generate_pdf
+    # respond_to do |format|
+    #   format.pdf do
+    #     render pdf: "cotizacion"   # Excluding ".pdf" extension.
+    #   end
+    # end
   end
 
 end

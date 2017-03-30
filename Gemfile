@@ -35,6 +35,10 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'pdfkit'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 # Bootstrap forms.
 gem 'bootstrap_form', '~> 2.5.3'
 

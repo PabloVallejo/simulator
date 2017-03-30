@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <%= bootstrap_form_tag url: simulator_step_three_path(@simulator.id) do |f| %>
+    <%= bootstrap_form_tag url: simulator_step_three_path(@simulator.id), method: 'get' do |f| %>
         <div class="row">
             <div class="col-md-6">
                 <%= f.select 'category', @category_list, { label: "Categoría:" }, data: {index: 1, slug: 'category'} %>
