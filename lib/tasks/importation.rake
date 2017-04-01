@@ -65,11 +65,11 @@ namespace :importation do
         puts providers[name.to_sym]
         puts hash[name.to_sym]
 
-        sp = ServicePrice.create(
-          provider: providers[name.to_sym],
-          private_cloud_ii: private_cloud_ii,
-          price: hash[name.to_sym]
-        )
+        # sp = ServicePrice.create(
+        #   provider: providers[name.to_sym],
+        #   private_cloud_ii: private_cloud_ii,
+        #   price: hash[name.to_sym]
+        # )
 
         puts sp.errors.inspect
         puts '<<'
@@ -79,6 +79,16 @@ namespace :importation do
       #
       # Installations.
       #
+
+      providers = {
+        ut_private_cloud_i: Provider.find_by_name('UT NUBE PRIVADA (SYNAPSIS COL Y PER) I',),
+        colsoft_i: Provider.find_by_name('COLSOFT I',),
+        ifx_i: Provider.find_by_name('IFX I',),
+        colombia_telecomunications_i: Provider.find_by_name('COLOMBIA TELECOMUNICACIONES I',),
+        une_i: Provider.find_by_name('UNE I',),
+        level_3_i: Provider.find_by_name('LEVEL 3 I',),
+        ut_cf_pl_iv_i: Provider.find_by_name('UT CF-PL-IV I')
+      }
 
       keys = [
         'ut_private_cloud_i',
