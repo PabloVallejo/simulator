@@ -65,11 +65,11 @@ namespace :importation do
         puts providers[name.to_sym]
         puts hash[name.to_sym]
 
-        # sp = ServicePrice.create(
-        #   provider: providers[name.to_sym],
-        #   private_cloud_ii: private_cloud_ii,
-        #   price: hash[name.to_sym]
-        # )
+        sp = ServicePrice.create(
+          provider: providers[name.to_sym],
+          private_cloud_ii: private_cloud_ii,
+          price: hash[name.to_sym]
+        )
 
         puts sp.errors.inspect
         puts '<<'
