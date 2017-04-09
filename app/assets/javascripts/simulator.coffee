@@ -25,7 +25,15 @@ ready = ->
         $("[data-index=#{index + 1}]").append $('<option></option>').attr('value', value).text(value)
 
   $('.export-pdf').on('click', ->
-    $(this).text('Generando PDF ...').addClass('disabled');
+    $(this).text('Generando PDF ... (Puede tomar hasta un minuto)').addClass('disabled');
+  )
+
+
+  # Make next step button available only when the last option is selected.
+  $('.quotation-page form').on('submit', ->
+    if not $('#_billing_unit').val()
+      alert ('Debes llenar todos los campos')
+      return false
   )
 
 # Bind to document.ready and 'page:load' from Turbolinks.

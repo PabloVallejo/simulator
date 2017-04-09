@@ -21,10 +21,10 @@
     <p class="lead"><%= @simulator.description %></p>
 
     <%= bootstrap_form_tag url: simulator_step_two_path(@simulator.id) do |f| %>
-        <%= f.text_field :company_name, value: 'Acme...', label: 'Nombre' %>
-        <%= f.text_field :company_address, value: 'Calle 100 # ...', label: 'Dirección' %>
-        <%= f.text_field :buyer_name, label: 'Nombre del comprador' %>
-        <%= f.email_field :buyer_email, label: 'Correo' %>
+        <%= f.text_field :company_name, value: 'Acme...', label: 'Nombre', required: true %>
+        <%= f.text_field :company_address, value: 'Calle 100 # ...', label: 'Dirección', required: true %>
+        <%= f.text_field :buyer_name, label: 'Nombre del comprador',required: true %>
+        <%= f.email_field :buyer_email, label: 'Correo',required: true %>
         <%= f.submit 'Continuar', class: 'btn btn-success' %>
     <% end %>
 
