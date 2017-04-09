@@ -1,9 +1,108 @@
 <div class="container">
 
-    <h4>Tu lista de cotizaciones</h4>
-
-    <a href="<%= simulator_step_three_path(@simulator, :pdf) %>?<%= request.query_parameters.to_query %>" class="btn btn-success">Exportar a PDF</a>
+    <h4>Cotización</h4>
+    <p class="lead">A continuación se listan cotizaciones de diferentes proveedores, tanto para servicio como instalación, asimismo puedes descargarla en PDF usando el botón "Descargar en PDF"</p>
     <br>
+    <div class="clearfix">
+        <a href="<%= simulator_step_three_path(@simulator, :pdf) %>?<%= request.query_parameters.to_query %>" class="btn btn-success export-pdf">Descargar en PDF</a>
+    </div>
+    <br>
+
+     <div class="card">
+        <div class="card-header">
+            Cotización
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Selección</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Categoría</td>
+                    <td><%= params[:category] %></td>
+                </tr>
+                <tr>
+                    <td>Nombre del servicio</td>
+                    <td><%= params[:service_name] %></td>
+                </tr>
+                <tr>
+                    <td>Nivel del servicio</td>
+                    <td><%= params[:service_level] %></td>
+                </tr>
+                <tr>
+                    <td>Elasticidad</td>
+                    <td><%= params[:elasticity] %></td>
+                </tr>
+                <tr>
+                    <td>Servidor</td>
+                    <td><%= params[:server] %></td>
+                </tr>
+                <tr>
+                    <td>Modalidad de entrega del servicio</td>
+                    <td><%= params[:deliver_mode] %></td>
+                </tr>
+
+                <tr>
+                    <td>Versión</td>
+                    <td><%= params[:version] %></td>
+                </tr>
+                <tr>
+                    <td>Cantidad core físico</td>
+                    <td><%= params[:physical_cores] %></td>
+                </tr>
+                <tr>
+                    <td>Cantidad VirtualCPU</td>
+                    <td><%= params[:virtual_cpus] %></td>
+                </tr>
+                <tr>
+                    <td>Sistema Operativo</td>
+                    <td><%= params[:operative_system] %></td>
+                </tr>
+                <tr>
+                    <td>Velocidad Procesador</td>
+                    <td><%= params[:processor_speed] %></td>
+                </tr>
+
+                <tr>
+                    <td>Memoria RAM (GB)</td>
+                    <td><%= params[:memory_ram] %></td>
+                </tr>
+                <tr>
+                    <td>Almacenamiento (GB)</td>
+                    <td><%= params[:storage] %></td>
+                </tr>
+                <tr>
+                    <td>Característica 1</td>
+                    <td><%= params[:characteristic_1] %></td>
+                </tr>
+                <tr>
+                    <td>Característica 2</td>
+                    <td><%= params[:characteristic_2] %></td>
+                </tr>
+                <tr>
+                    <td>Característica 3</td>
+                    <td><%= params[:characteristic_3] %></td>
+                </tr>
+                <tr>
+                    <td>Característica 4</td>
+                    <td><%= params[:characteristic_4] %></td>
+                </tr>
+                <tr>
+                    <td>Unidad de facturación</td>
+                    <td><%= params[:billing_unit] %></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <hr style="margin: 50px 0;">
+
+    <h5>Lista de precios</h5>
+    <p class="lead">Precios por servicio y por instalación</p>
 
     <!-- Service -->
     <div class="card">
@@ -24,7 +123,7 @@
                     <tr>
                         <td><%= index %></td>
                         <td><%= service.provider.name %></td>
-                        <td><% if service.price %>$ <%= service.price %><% else %>Precio no disponible<% end %></td>
+                        <td><% if service.price %><%= number_to_currency(service.price, precision: 0, delimiter: '.') %><% else %>Precio no disponible<% end %></td>
                     </tr>
                 <% end %>
             </tbody>
@@ -51,12 +150,19 @@
                     <tr>
                         <td><%= index %></td>
                         <td><%= installation.provider.name %></td>
-                        <td>$ <%= installation.price %></td>
+                        <td><%= number_to_currency(installation.price, precision: 0, delimiter: '.') %></td>
                     </tr>
                 <% end %>
             </tbody>
         </table>
     </div>
+
+    <br>
+    <div class="clearfix">
+        <a href="<%= simulator_step_three_path(@simulator, :pdf) %>?<%= request.query_parameters.to_query %>" class="btn btn-success export-pdf">Descargar en PDF</a>
+    </div>
+    <br>
+    <br>
 
 
 
