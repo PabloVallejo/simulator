@@ -30,3 +30,7 @@ $ docker exec -it visualizacioncompraspublicas_web_1 rake importation:private_cl
 ```
 
 Go to [http://localhost:3000](http://localhost:3000) and you should be able to see the project and one simulator created.
+
+## Further documentation 
+
+You can find documentation on usage and how to deploy the app to heroku [here](https://docs.google.com/document/d/1kucP4EAY3Uxvkfhl-LHSnRlPXZXGl_l7hgAe-rwrE54/edit)
