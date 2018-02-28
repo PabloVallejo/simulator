@@ -19,23 +19,14 @@ $ docker-compose run web rails db:create
 $ docker-compose up
 ```
 
-## Setup without Docker
+Open another Tab and run this
 
 ```bash
+# Run migrations.
+$ docker exec -it visualizacioncompraspublicas_web_1 rails db:migrate
 
-# Clone the project and CD into it.
-$ git clone https://github.com/PabloVallejo/simulator.git
-$ cd simulator 
-
-# Install rails and install dependencies.
-$ gem install rails
-$ bundle install
-
-# Create the database
-$ rails db:create
-
-# Run the server.
-$ bundle exec rails s -p 3000 -b '0.0.0.0
+# Import providers data.
+$ docker exec -it visualizacioncompraspublicas_web_1 rake importation:private_cloud_ii
 ```
 
-Go to [http://localhost:3000](http://localhost:3000) to see the project
+Go to [http://localhost:3000](http://localhost:3000) and you should be able to see the project and one simulator created.
