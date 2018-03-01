@@ -15,6 +15,12 @@ $ docker-compose build
 # Create the databases.
 $ docker-compose run web rails db:create
 
+# Run migrations to structure the database
+$ docker-compose run web rails db:migrate
+
+# Import providers data.
+$ docker-compose run web rake importation:private_cloud_ii
+
 # Run the project.
 $ docker-compose up
 ```
