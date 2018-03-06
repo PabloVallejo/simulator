@@ -9,17 +9,30 @@ $ git clone https://github.com/PabloVallejo/simulator.git
 
 $ cd simulator 
 
-# Build the project .
+# Build the project.
 $ docker-compose build 
 
-# Create the databases.
+# Run it.
+$ docker-compose up 
+```
+
+Open another tab and change directory to the project directory, then run:
+
+```bash
+# Create the database.
 $ docker-compose run web rails db:create
 
-# Run migrations to structure the database
+# Create database tables.
 $ docker-compose run web rails db:migrate
 
-# Import providers data.
-$ docker-compose run web rake importation:private_cloud_ii
+# Create default database structures.
+$ docker-compose run web rails db:seed
+
+# Import cloud configuration options.
+$ docker-compose run web rake importation:private_cloud_ii_options
+
+# Import cloud option prices.
+$ docker-compose run web rake importation:private_cloud_ii_prices
 
 # Run the project.
 $ docker-compose up
