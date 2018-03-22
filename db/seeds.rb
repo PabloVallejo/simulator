@@ -31,3 +31,6 @@ providers.each do |name|
     name: name
   )
 end
+
+# Create the simulator.
+Simulator.create(name: 'Nube privada II', description: 'Simulador de nube privada II')
